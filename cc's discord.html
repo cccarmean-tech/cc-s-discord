@@ -1,0 +1,251 @@
+<!doctype html>
+<!-- file: index.html — static, no deps, drop anywhere -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cc's discord</title>
+<meta name="description" content="discord server, made by cccarmean.">
+<style>
+  :root{
+    --bg:#101014;
+    --ink:#d7d7dc;
+    --dim:#88888f;
+    --rule:#26262c;
+    --link:#9aa7ff;
+    --warn:#ff7a7a;
+    --good:#7ec27e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    padding:0 20px;
+  }
+  .page{max-width:660px;margin:0 auto;padding:56px 0 80px}
+
+  /* header */
+  header{margin-bottom:44px}
+  .top{
+    display:flex;justify-content:space-between;align-items:baseline;
+    gap:16px;flex-wrap:wrap;
+    padding-bottom:14px;border-bottom:1px solid var(--rule);
+    margin-bottom:34px;
+  }
+  .top .name{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;color:var(--dim)}
+  .top nav a{font-size:14px;color:var(--dim);margin-left:16px}
+  .top nav a:hover{color:var(--ink)}
+
+  h1{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:28px;font-weight:600;letter-spacing:-.4px;
+    margin-bottom:14px;
+  }
+  h1 .cursor{color:var(--good)}
+
+  p{margin-bottom:14px}
+  .lead{color:var(--dim);max-width:520px}
+
+  a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+  a:hover{border-bottom-color:var(--link)}
+
+  /* plain button */
+  .go{
+    display:inline-block;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:14px;
+    padding:9px 16px;
+    border:1px solid #3a3a44;
+    border-radius:4px;
+    color:var(--ink);
+    margin:6px 8px 6px 0;
+    transition:border-color .12s,background .12s;
+  }
+  .go:hover{background:#1a1a20;border-color:#55555f}
+  .go.primary{border-color:var(--link);color:var(--link)}
+  .go.primary:hover{background:#1a1d2e;border-color:var(--link)}
+
+  .small{font-size:13px;color:var(--dim);margin-top:12px}
+  .small a{color:var(--ink);border-bottom:1px dotted var(--dim)}
+  .small a:hover{border-bottom-color:var(--ink)}
+
+  /* sections */
+  section{margin-top:52px}
+  h2{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:15px;font-weight:600;
+    color:var(--dim);
+    text-transform:lowercase;
+    margin-bottom:18px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--rule);
+  }
+  h2 .n{color:#55555f;margin-right:8px}
+
+  ul.plain{list-style:none}
+  ul.plain li{
+    padding:7px 0 7px 18px;
+    position:relative;
+  }
+  ul.plain li::before{
+    content:"·";
+    position:absolute;left:2px;color:var(--dim);
+  }
+
+  /* jailbreaks */
+  .jb p{color:var(--ink);max-width:560px}
+  .jb p.note{color:var(--dim);font-size:15px}
+  .jb .tags{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:13px;color:var(--dim);
+    margin-top:16px;
+  }
+  .jb .tags span{margin-right:12px;white-space:nowrap}
+
+  /* rules */
+  ol.rules{list-style:none;counter-reset:r}
+  ol.rules li{
+    counter-increment:r;
+    padding:14px 0 14px 42px;
+    position:relative;
+    border-bottom:1px solid var(--rule);
+  }
+  ol.rules li:last-child{border-bottom:0}
+  ol.rules li::before{
+    content:counter(r,decimal-leading-zero);
+    position:absolute;left:0;top:15px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:12px;color:#55555f;
+  }
+  ol.rules li b{color:#fff}
+  ol.rules li.hard::before{color:var(--warn)}
+  ol.rules li.hard b{color:var(--warn)}
+  .banline{
+    margin-top:18px;
+    font-size:14px;
+    color:var(--dim);
+    border-left:2px solid #4a2020;
+    padding-left:14px;
+  }
+  .banline b{color:var(--warn);font-weight:600}
+
+  /* youtube */
+  .yt{margin-top:52px;padding-top:24px;border-top:1px solid var(--rule)}
+
+  /* footer */
+  footer{
+    margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);
+    font-size:13px;color:var(--dim);
+  }
+  footer a{color:var(--dim);border-bottom:1px solid var(--rule)}
+  footer a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+
+  @media(max-width:520px){
+    .page{padding:36px 0 60px}
+    h1{font-size:23px}
+    .top nav a{margin-left:12px}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="top">
+      <span class="name">~/ccs-discord</span>
+      <nav>
+        <a href="#what">what</a>
+        <a href="#jailbreaks">ai</a>
+        <a href="#rules">rules</a>
+        <a href="https://www.youtube.com/@ccwasherelol" target="_blank" rel="noopener">youtube</a>
+      </nav>
+    </div>
+
+    <h1>cc's discord<span class="cursor"> _</span></h1>
+    <p class="lead">
+      small server, people actually talk. games, voice most of the time, some tech stuff,
+      a jailbreak channel if that's your thing. no bots farming your dms, no dead channels.
+    </p>
+    <p>
+      <a class="go primary" href="https://discord.gg/VgdssTyjbQ" target="_blank" rel="noopener">join the discord</a>
+      <a class="go" href="https://www.youtube.com/@ccwasherelol" target="_blank" rel="noopener">youtube</a>
+    </p>
+    <p class="small">
+      made by <a href="https://www.youtube.com/@ccwasherelol" target="_blank" rel="noopener">cccarmean</a>.
+      go sub to the youtube if you feel like it, not required.
+    </p>
+  </header>
+
+  <section id="what">
+    <h2><span class="n">01</span>what's in here</h2>
+    <ul class="plain">
+      <li>voice chat most hours, not always busy but never empty for a whole day</li>
+      <li>game nights every so often, whoever shows up plays</li>
+      <li>a place to post stuff you're working on — code, art, whatever</li>
+      <li>clean channel list, no 40 roles, no pinging bots</li>
+      <li>mods that actually read the chat</li>
+    </ul>
+    <p class="small">no application, no waiting room. click the invite and you're in.</p>
+  </section>
+
+  <section id="jailbreaks" class="jb">
+    <h2><span class="n">02</span>ai jailbreaks</h2>
+    <p>
+      there's a channel for ai jailbreaks. if you're into that — prompts that get a model to drop its usual script,
+      red-team stuff, which ones still work and which ones got patched — this server's a good fit.
+      people post what worked, what didn't, why.
+    </p>
+    <p>
+      nobody's going to lecture you about it. if it's not your thing, that's fine too, there's plenty else going on.
+      no pressure either way, just saying it's here.
+    </p>
+    <p class="tags">
+      <span>jailbreaks</span><span>red-team</span><span>prompt craft</span><span>what got patched</span><span>model quirks</span>
+    </p>
+  </section>
+
+  <section id="rules">
+    <h2><span class="n">03</span>rules</h2>
+    <ol class="rules">
+      <li><b>be nice.</b> people come here to chill. don't make the room worse.</li>
+      <li class="hard"><b>no slurs.</b> any of them. joke or not, lyric or not. say one and you're banned, no warning.</li>
+      <li class="hard"><b>no harassing people.</b> no ganging up, no "it was just banter" after someone says stop. ban.</li>
+      <li><b>be gay, idk.</b> be whoever you are. queer, straight, questioning, none of it — nobody's asked to explain themselves.</li>
+      <li class="hard"><b>nothing illegal, nothing under 18.</b> no nsfw in public channels, no adult stuff with minors ever, no piracy, no doxxing. ban and reported.</li>
+      <li><b>right channel for the right thing.</b> memes in memes, clips in clips, jailbreaks in jailbreaks. if a mod moves your post they're just tidying.</li>
+      <li><b>no spam.</b> one link in the promo channel, not in every chat. dm-advertising gets you muted.</li>
+      <li><b>no bringing in outside drama.</b> beef from another server or stream stays out.</li>
+      <li><b>mods get the last word.</b> if a call feels wrong, dm a mod politely instead of arguing in general.</li>
+      <li><b>have fun, actually.</b> post something, join the call, start a lobby. quiet server is everyone's fault.</li>
+    </ol>
+    <p class="banline">
+      <b>2, 3 and 5 are instant bans</b> — no warnings, no "didn't mean it". everything else: warning, then mute, then out.
+    </p>
+  </section>
+
+  <section class="yt">
+    <h2><span class="n">04</span>youtube</h2>
+    <p>
+      if you want more of this stuff outside the server:
+      <a href="https://www.youtube.com/@ccwasherelol" target="_blank" rel="noopener">youtube.com/@ccwasherelol</a>.
+      sub if you like it, skip if you don't. no hard feelings.
+    </p>
+    <p>
+      <a class="go" href="https://www.youtube.com/@ccwasherelol?sub_confirmation=1" target="_blank" rel="noopener">subscribe</a>
+      <a class="go primary" href="https://discord.gg/VgdssTyjbQ" target="_blank" rel="noopener">join the discord</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>
+      made by <a href="https://www.youtube.com/@ccwasherelol" target="_blank" rel="noopener">cccarmean</a>.
+      invite: <a href="https://discord.gg/VgdssTyjbQ" target="_blank" rel="noopener">discord.gg/VgdssTyjbQ</a>.
+      not affiliated with discord.
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
